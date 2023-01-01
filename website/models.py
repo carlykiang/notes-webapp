@@ -7,6 +7,13 @@ from sqlalchemy.sql import func
 db = SQLAlchemy()
 DB_NAME= "database.db"
 
+class Settings(db.Model):
+    #define all of the columns you want in the table
+    id = db.Column(db.Integer, primary_key = True)
+    color = db.Column(db.String(10000))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
 class Note(db.Model):
     #define all of the columns you want in the table
     id = db.Column(db.Integer, primary_key = True)

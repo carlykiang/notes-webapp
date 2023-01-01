@@ -1,9 +1,28 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, logout_user, current_user
-from .models import Note, db
+from .models import Note, db, Settings
 import json
 
 views = Blueprint('views', __name__)
+
+@views.route('/homepage')
+def homepage():
+    return render_template("homepage.html", user=current_user)
+
+
+@views.route('/settings', methods=['GET', 'POST'])
+@login_required
+def settings():
+    if request.method == 'POST':
+        color = request.form.get('color')
+        new_color = Settings(color=color, user_id=current_user.id)
+        db.session.add(new_color)
+        db.session.commit()
+        flash('Background changed!', category='success')
+            
+    return render_template("settings.html", user=current_user)
+
+
 
 @views.route('/', methods=['GET', 'POST'])
 @login_required

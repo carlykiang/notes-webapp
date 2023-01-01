@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<br />
+<meta charset="UTF-8">
+<h1 align = "center">Settings</h1>
+<br />
+
+<div align = "center" class="dropdown">
+    
+    
+
+
+  <form class = "colorSelection" method = "POST">
+
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="color" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Background Color
+      </button>
+      <div id="color" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Sky Blue</a>
+        <a class="dropdown-item" href="#">Mellow Lavender</a>
+        <a class="dropdown-item" href="#">Sunny Yellow</a>
+        <a class="dropdown-item" href="#">Cotton Candy Pink</a>
+      </div>
+    </div>
+    <br />
+    
+</form>
+
+{% endblock %}
