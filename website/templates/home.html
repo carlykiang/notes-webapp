@@ -2,18 +2,32 @@
 {% block title %}Notes{% endblock %}
 {% block content %}
 <br />
+{% for color in user.settings %}
+{% if color.color == 'blue' %}
+<body style="background-color:rgb(152, 216, 238);" >
+{% endif %}
+{% if color.color == 'purple' %}
+<body style="background-color:rgb(206, 178, 254);" >
+{% endif %}
+{% if color.color == 'yellow' %}
+<body style="background-color:rgb(245, 243, 185);" >
+{% endif %}
+{% endfor %}
 <h1 align = "center">Notes</h1>
-<ul class="lift-group list-group-flush" id="notes">
+
+<div align = "center" class="container">
+<ul  align = "center" class="lift-group list-group-flush" id="notes">
     {% for note in user.notes %}
     <li class="list-group-item">
         {{ note.text }} 
-        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+        <button  type="button" class="close" onClick="deleteNote({{ note.id }})">
             <span aria-hidden="true">&times;</span>
         </button>
 
     </li>
     {% endfor %}
 </ul>
+</div>
 
 
 <form method = "POST">
@@ -23,5 +37,7 @@
         <button type="submit" class = "btn btn-primary">Add Note</button>
     </div>
 </form>
+
+</body>
 
 {% endblock %}

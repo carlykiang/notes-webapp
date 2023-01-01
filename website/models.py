@@ -7,7 +7,7 @@ from sqlalchemy.sql import func
 db = SQLAlchemy()
 DB_NAME= "database.db"
 
-class Settings(db.Model):
+class Setting(db.Model):
     #define all of the columns you want in the table
     id = db.Column(db.Integer, primary_key = True)
     color = db.Column(db.String(10000))
@@ -31,4 +31,5 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note')
+    settings = db.relationship('Setting')
 
