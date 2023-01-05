@@ -5,7 +5,7 @@ import json
 
 views = Blueprint('views', __name__)
 
-@views.route('/homepage')
+@views.route('/')
 def homepage():
     return render_template("homepage.html", user=current_user)
 
@@ -27,7 +27,7 @@ def color():
 
 
 
-@views.route('/', methods=['GET', 'POST'])
+@views.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
     
