@@ -6,4 +6,6 @@ Notes webapp based on Tech With Tim's tutorial (https://www.youtube.com/watch?v=
 Built using Python and Flask, with the authentication using SQLAlchemy. Webapp was deployed using Heroku.
 
 # Test it out!
+Login: lol@gmail.com
+Password: 1234567
 https://remind-me-app.herokuapp.com/
