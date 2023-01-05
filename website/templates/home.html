@@ -2,23 +2,23 @@
 {% block title %}Notes{% endblock %}
 {% block content %}
 <br />
-{% for color in user.settings %}
-{% if color.color == 'blue' %}
+{% if bgcolor == 'blue': %}
 <body style="background-color:rgb(152, 216, 238);" >
 {% endif %}
-{% if color.color == 'purple' %}
+{% if bgcolor == 'purple' %}
 <body style="background-color:rgb(206, 178, 254);" >
 {% endif %}
-{% if color.color == 'yellow' %}
+{% if bgcolor == 'yellow' %}
 <body style="background-color:rgb(245, 243, 185);" >
 {% endif %}
-{% endfor %}
+
 <h1 align = "center">Notes</h1>
 
 <div align = "center" class="container">
 <ul  align = "center" class="lift-group list-group-flush" id="notes">
+    <div align = "center" >
     {% for note in user.notes %}
-    <li class="list-group-item">
+    <li align = "center" class="list-group-item">
         {{ note.text }} 
         <button  type="button" class="close" onClick="deleteNote({{ note.id }})">
             <span aria-hidden="true">&times;</span>
@@ -26,6 +26,7 @@
 
     </li>
     {% endfor %}
+</div>
 </ul>
 </div>
 

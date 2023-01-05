@@ -9,14 +9,19 @@
 <div align = "center" class="dropdown">
     
 
-    <form method="post" action="/color">
+    <form method="post" action="/color">   
+        <label for="color">Select a Background Color:</label>
         <select id="color" name="color">
             <option value="blue">Blue</option>
             <option value="yellow">Yellow</option>
             <option value="purple">Purple</option>
         </select>
+        <br/>
         <button type="submit" class="btn btn-primary">Submit</button>
+        
+
       </form> 
 </div>
 
 {% endblock %}
+

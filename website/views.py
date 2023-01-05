@@ -22,8 +22,12 @@ def color():
         new_color = Setting(color=color, user_id=current_user.id)
         db.session.add(new_color)
         db.session.commit()
-        flash('Background changed!', category='success')       
-        return render_template("settings.html", user=current_user)
+        flash('Background changed!', category='success') 
+        obj = db.session.query(Setting).order_by(Setting.id.desc()).first()
+      
+        if color == 'blue':
+            hex = "rgb(152, 216, 238)"
+        return render_template("home.html", user=current_user, bgcolor = color)
 
 
 
